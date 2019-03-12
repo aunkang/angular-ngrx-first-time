@@ -1,0 +1,6 @@
+<mat-card class="container">
+  <span>{{itemName}}</span>
+  <span *ngIf='amount'>{{amount}} ea</span>
+  <button *ngIf='page === "itemList"' class="add-btn" (click)="addItem()">add</button>
+  <button *ngIf='page === "cart"' class="remove-btn" (click)="removeItem()">remove</button>
+</mat-card>
