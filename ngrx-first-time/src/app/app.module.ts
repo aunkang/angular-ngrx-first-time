@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { cartReducer } from './ngrx/reducres/cart.reducer';
+import { reducers } from './store/app.reducers';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { cartReducer } from './ngrx/reducres/cart.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cart: cartReducer })
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

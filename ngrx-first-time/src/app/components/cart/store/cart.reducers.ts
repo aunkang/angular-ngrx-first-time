@@ -1,12 +1,18 @@
-import { Item } from './../../services/cart.service';
-import * as CartActions from './../actions/cart.action';
-const initialState = {
-  items: [] // type is Item[]
+import * as CartActions from './cart.actions';
+import { Item } from './../../../services/cart.service';
+
+export interface State {
+  items: Item[];
 }
 
-export function cartReducer(state = initialState, action: CartActions.CartAction) {
+const initialState: State = {
+  items: []
+}
+
+export function cartReducer(state = initialState, action: CartActions.CartActions) {
   switch (action.type) {
-    case CartActions.CartActionTypes.add:
+    /* add item in cart */
+    case CartActions.CartActionTypes.Add:
       let isItemInCart = false; // use for check item in cart
 
       let newItems = state.items.filter((item: Item) => {
@@ -25,8 +31,8 @@ export function cartReducer(state = initialState, action: CartActions.CartAction
       }
       return { ...state, items: [...newItems] };
 
-
-    case CartActions.CartActionTypes.remove:
+    /* remove item in cart */
+    case CartActions.CartActionTypes.Remove:
       return {
         ...state,
         items: state.items.filter((item: Item) => {
